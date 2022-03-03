@@ -72,6 +72,8 @@ class AdminSeeder extends Seeder
 
         Role::first()->permissions()->save(Permission::first());
 
+
+
         // add default menus.
         Menu::truncate();
         Menu::insert([
@@ -131,6 +133,15 @@ class AdminSeeder extends Seeder
                 'icon' => 'fa-users',
                 'uri' => 'users',
             ],
+            [
+                'parent_id' => 0,
+                'order' => 4,
+                'title' => 'Article',
+                'icon' => 'fa-newspaper-o',
+                // url 연결할 때 뒤에 뭐라고 적을지 설정
+                'uri' => 'articles',
+            ],
+            
         ]);
 
         // add role to menu.
